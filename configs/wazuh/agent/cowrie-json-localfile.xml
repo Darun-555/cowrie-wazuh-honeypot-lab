@@ -1,0 +1,6 @@
+# To add to agent config file
+<localfile>
+  <location>/home/cowrie/cowrie/var/log/cowrie/cowrie.json</location>
+  <log_format>json</log_format>
+  <label key="@source">cowrie</label>
+</localfile>
