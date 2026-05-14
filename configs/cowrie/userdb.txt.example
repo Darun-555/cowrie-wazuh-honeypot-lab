@@ -1,0 +1,14 @@
+root:x:!root
+root:x:!admin
+root:x:!123456
+root:x:Welcome@123
+
+admin:x:!admin
+admin:x:!password
+admin:x:Spring2026!
+
+ubuntu:x:!ubuntu
+ubuntu:x:!123456
+ubuntu:x:Cloud@2026
+
+*:x:!honeypot

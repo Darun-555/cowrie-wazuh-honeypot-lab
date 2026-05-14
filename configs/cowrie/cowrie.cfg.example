@@ -1,0 +1,38 @@
+[honeypot]
+hostname = prod-webserver-01
+timezone = Asia/Dubai
+data_path = src/cowrie/data
+interactive_timeout = 1200
+authentication_timeout = 60
+contents_path = honeyfs
+auth_class = UserDB
+ttylog = true
+kernel_version = 5.15.0-91-generic
+kernel_build_string = #101-Ubuntu SMP Tue mar 14 13:30:08 UTC 2026
+hardware_platform = x86_64
+operating_system = GNU/Linux
+fake_addr = 45.15.172.100       
+listen_addr = 0.0.0.0
+
+[ssh]
+enabled = true
+listen_endpoints = tcp:2222:interface=0.0.0.0
+reported_port = 22
+
+[telnet]
+enabled = false
+listen_endpoints = tcp:2223:interface=0.0.0.0
+reported_port = 23
+
+[shell]
+filesystem = ${honeypot:data_path}/fs.pickle
+
+[output_jsonlog]
+enabled = true
+logfile = ${honeypot:log_path}/cowrie.json
+epoch_timestamp = false
+
+[output_prometheus]
+enabled = true
+port = 9000
+debug = false

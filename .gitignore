@@ -1,0 +1,17 @@
+# Virtual environments
+cowrie-env/
+venv/
+.env
+
+# Runtime logs
+logs/raw/
+*.log
+
+# Cowrie runtime 
+downloads/
+var/
+
+# Temporary files
+*.swp
+*.tmp
+.DS_Store

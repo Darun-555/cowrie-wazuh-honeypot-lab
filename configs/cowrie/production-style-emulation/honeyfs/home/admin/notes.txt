@@ -1,0 +1,7 @@
+Quarterly admin checklist:
+[ ] Verify nginx error logs after patient portal DB maintenance.
+[ ] Confirm PostgreSQL connection settings for the patient registration portal.
+[ ] Rotate PostgreSQL DB credentials for the staging DB - DUE FRIDAY.
+[ ] Backup /var/log/auth.log and /var/log/nginx/ to the internal NAS (10.0.0.15).
+[ ] Investigate the persistent high CPU load on the database VM.
+[ ] REMINDER: Delete the temporary SSH private key I left in /tmp/.ssh_backup.
