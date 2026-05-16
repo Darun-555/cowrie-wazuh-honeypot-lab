@@ -9,7 +9,7 @@ This project demonstrates a controlled SSH honeypot lab built with Cowrie, attac
 - Wazuh SIEM server
 - Wazuh agent installed on the Cowrie VM
 
-## Network Diagram
+## Lab Diagram
 
 This lab uses three virtual machines on the `192.168.56.0/24` host-only network:
 
@@ -22,16 +22,9 @@ This lab uses three virtual machines on the `192.168.56.0/24` host-only network:
 - **Kali Attacker VM**  
   IP: `192.168.56.30`
   
-```mermaid
-graph LR
-    A[Kali Attacker VM<br/>192.168.56.30] -->|SSH brute force<br/>Enumeration<br/>Payload download attempts| B[Ubuntu 24.04 LTS Cowrie Honeypot<br/>Wazuh Agent<br/>192.168.56.20]
 
-    B -->|Cowrie JSON logs forwarded<br/>by Wazuh Agent| C[Ubuntu Server 24.04.4 LTS<br/>Wazuh Backend<br/>192.168.56.10]
+![Lab Diagram](docs/Screenshots/Lab_diagram.png)
 
-    C --> D[Wazuh Manager]
-    C --> E[Wazuh Indexer]
-    C --> F[Wazuh Dashboard]
-```
 
 ## Attack Scenarios Demonstrated
 1. SSH brute-force attempts
