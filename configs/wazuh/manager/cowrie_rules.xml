@@ -1,0 +1,42 @@
+<group name="cowrie,honeypot,">
+
+  <rule id="100100" level="5">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.login\.failed$</field>
+    <description>Cowrie: failed SSH login attempt detected</description>
+  </rule>
+
+  <rule id="100101" level="8">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.login\.success$</field>
+    <description>Cowrie: successful honeypot login detected</description>
+  </rule>
+
+  <rule id="100102" level="10">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.session\.file_download$</field>
+    <description>Cowrie: payload download attempt detected</description>
+  </rule>
+
+  <rule id="100103" level="9">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.command\.input$</field>
+    <field name="input" type="pcre2">(?i)(wget|curl|chmod\s+\+x|iptables\s+-F|rm\s+-rf\s+/var/log)</field>
+    <description>Cowrie: suspicious post-exploitation command observed</description>
+  </rule>
+  
+<rule id="100104" level="7">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.command\.input$</field>
+    <field name="input" type="pcre2">(?i)(^whoami$|^id$|^uname(\s+-a)?$|^hostname$|^pwd$|^ls(\s+.*)?$|^cat(\s+.*)?$)</field>
+    <description>Cowrie: attacker enumeration command observed</description>
+</rule>
+
+  <rule id="100105" level="10">
+    <field name="@source" type="pcre2">^cowrie$</field>
+    <field name="eventid" type="pcre2">^cowrie\.command\.input$</field>
+    <field name="input" type="pcre2">(?i)(^\./[^\s]+\.sh(?:\s+.*)?$|^(bash|sh)\s+[^\s]+\.sh(?:\s+.*)?$)</field>
+    <description>Cowrie: payload execution attempt observed</description>
+  </rule>
+
+</group>
